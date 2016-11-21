@@ -1,7 +1,7 @@
 import requests
 import json
-from brightcove.video import Video
-from brightcove.playlist import Playlist
+from brightcoveCMS.video import Video
+from brightcoveCMS.playlist import Playlist
 
 class BrightcoveClient(object):
 
