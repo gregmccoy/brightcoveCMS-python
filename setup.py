@@ -11,5 +11,5 @@ setup(
     requires=[
         'requests',
     ],
-    packages = ['brightcove'],
+    packages = ['brightcoveCMS'],
 )
