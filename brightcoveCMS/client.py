@@ -17,10 +17,13 @@ class BrightcoveClient(object):
 
     def get_oauth(self):
         headers = { "Content-Type": self.contenttype }
-        response =requests.post("https://oauth.brightcove.com/v3/access_token",
+        response = requests.post("https://oauth.brightcove.com/v3/access_token",
                 headers=headers,
                 auth=(self.client_id , self.token),
                 data="grant_type=client_credentials")
+
+        if response.status_code != 200 and response.status_code != 201:
+            raise requests.ConnectionError("Expected status code 200, but got {}".format(response.status_code))
 
         return json.loads(response.text)["access_token"]
 
